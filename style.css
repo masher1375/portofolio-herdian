@@ -125,28 +125,30 @@ h2::after {
 }
 
 /* ==========================================================================
-   TATA LETAK HEADER SEIMBANG (FLEXBOX STANDAR)
+   PENGUNCI TATA LETAK HEADER ANTI-TURUN
    ========================================================================== */
 .container {
-    width: 90%;
-    max-width: 1000px;
+    width: 95%;
+    max-width: 1050px; /* Diperluas agar ruang horizontal melimpah */
     margin: 0 auto;
 }
 
 .hero-flex {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important; /* Memaksa posisi horizontal kiri-kanan */
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
+    flex-wrap: nowrap !important; /* MUTLAK: Melarang foto melompat ke bawah */
 }
 
 .hero-text {
-    flex: 1; /* Mengambil sisa ruang kosong di sebelah kiri secara otomatis */
-    text-align: left;
+    flex: 1;
+    min-width: 0; /* Mengalah pada ruang agar foto di kanan tetap muat */
 }
 
 .hero-image {
-    flex-shrink: 0; /* Mengunci foto agar ukurannya tetap kokoh di kanan */
+    flex-shrink: 0; /* Mengunci ukuran kotak foto agar tidak mengecil */
 }
 
 /* Hapus atau kosongkan kode @media (max-width: 768px) yang mengatur hero-flex sebelumnya */
