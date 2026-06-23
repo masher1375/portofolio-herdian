@@ -144,7 +144,7 @@ h2::after {
 
 .hero-text {
     flex: 1;
-    min-width: 500px; /* Memberikan ruang yang cukup untuk teks perkenalan */
+    min-width: 400px; /* Diturunkan dari 500px ke 400px agar memberikan ruang bagi foto di kanan */
 }
 
 /* Hapus atau kosongkan kode @media (max-width: 768px) yang mengatur hero-flex sebelumnya */
