@@ -151,7 +151,6 @@ h2::after {
     flex-shrink: 0; /* Melarang foto menyusut atau mengecil */
 }
 
-
 /* Hapus atau kosongkan kode @media (max-width: 768px) yang mengatur hero-flex sebelumnya */
 
 /* ==========================================================================
