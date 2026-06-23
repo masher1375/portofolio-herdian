@@ -124,51 +124,30 @@ h2::after {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* ==========================================================================
+   KODE PENGUNCI TAMPILAN SITUS DESKTOP (FOTO SELALU DI KANAN TEKS)
+   ========================================================================== */
+.container {
+    width: 95%;
+    max-width: 1000px;
+    min-width: 950px; /* Mengunci lebar minimal web agar komponen tidak melompat ke bawah */
+    margin: 0 auto;
+}
+
 .hero-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    flex-wrap: wrap;
-}
-
-/* ==========================================================================
-   PENGATURAN RESPONSIVE KHUSUS LAYAR HP (MENGUBAH URUTAN FOTO KE ATAS)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .hero-flex {
-        flex-direction: column-reverse; /* Membalik urutan di HP: Foto naik ke atas, Teks ke bawah */
-        text-align: center;            /* Membuat teks nama dan lokasi berada di tengah (center) agar rapi */
-    }
-    
-    .contact-badges {
-        justify-content: center;       /* Membuat tombol-tombol kontak rata tengah di layar HP */
-    }
+    flex-wrap: nowrap !important; /* Memaksa foto dan teks untuk selalu sejajar kiri-kanan */
 }
 
 .hero-text {
     flex: 1;
-    min-width: 300px;
+    min-width: 500px; /* Memberikan ruang yang cukup untuk teks perkenalan */
 }
 
-.hero-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #f8fafc;
-    font-weight: 700;
-}
-
-.subtitle {
-    font-size: 1.1rem;
-    color: #cbd5e1;
-    margin-bottom: 15px;
-}
-
-.location {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    margin-bottom: 20px;
-}
+/* Hapus atau kosongkan kode @media (max-width: 768px) yang mengatur hero-flex sebelumnya */
 
 /* ==========================================================================
    TOMBOL KONTAK BADGES (WARNA SOLID ELEGAN & CERAH)
