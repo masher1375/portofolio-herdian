@@ -144,87 +144,53 @@
         </div>
     </section>
 
-            <!-- SERTIFIKASI RESMI (EDISI GAMBAR LANGSUNG & POP-UP LIGHTBOX) -->
+               <!-- SERTIFIKASI RESMI (EDISI MODAL JAVASCRIPT - 100% ANTI BUG KEDIP) -->
     <section class="container section">
         <h2>Sertifikasi Resmi</h2>
         <p class="section-desc">Klik pada gambar sertifikat untuk memperbesar dan melihat detail dokumen secara jelas.</p>
         
         <div class="cert-grid">
-            
-                      <!-- KARTU 1: TSM (SUDAH DISINKRONKAN MENJADI TBSM) -->
+            <!-- KARTU 1: TSM -->
             <div class="cert-card">
-                <!-- Gambar Sertifikat Kecil (Ubah src menjadi ./sertifikat-tbsm.jpg) -->
-                <a href="#img-popup-tsm">
-                    <img src="./sertifikat-tbsm.jpg" class="cert-preview-img" alt="Sertifikat TSM">
-                </a>
+                <img src="./sertifikat-tbsm.jpg" class="cert-preview-img" onclick="openModal(this.src)" alt="Sertifikat TSM">
                 <div class="cert-info-box">
                     <h3>Sertifikat Kompetensi Keahlian Teknik Bisnis Sepeda Motor</h3>
                     <p class="cert-date">Tahun 2020</p>
-                </div>
-                <!-- Wadah Pop-up Layar Penuh (Ubah src di bawah menjadi ./sertifikat-tbsm.jpg) -->
-                <div id="img-popup-tsm" class="lightbox-overlay">
-                    <a href="#close" class="lightbox-close-area"></a>
-                    <div class="lightbox-content">
-                        <a href="#close" class="lightbox-close-btn">&times;</a>
-                        <img src="./sertifikat-tbsm.jpg" alt="Sertifikat TSM Besar">
-                    </div>
                 </div>
             </div>
 
             <!-- KARTU 2: KOMPUTER -->
             <div class="cert-card">
-                <a href="#img-popup-komputer">
-                    <img src="./sertifikat-komputer.jpg" class="cert-preview-img" alt="Sertifikat Komputer">
-                </a>
+                <img src="./sertifikat-komputer.jpg" class="cert-preview-img" onclick="openModal(this.src)" alt="Sertifikat Komputer">
                 <div class="cert-info-box">
                     <h3>Sertifikat Komputer LPK Bina Warga</h3>
                     <p class="cert-date">Tahun 2020</p>
-                </div>
-                <div id="img-popup-komputer" class="lightbox-overlay">
-                    <a href="#close" class="lightbox-close-area"></a>
-                    <div class="lightbox-content">
-                        <a href="#close" class="lightbox-close-btn">&times;</a>
-                        <img src="./sertifikat-komputer.jpg" alt="Sertifikat Komputer Besar">
-                    </div>
                 </div>
             </div>
 
             <!-- KARTU 3: AKUNTANSI -->
             <div class="cert-card">
-                <a href="#img-popup-akuntansi">
-                    <img src="./sertifikat-akuntansi.jpg" class="cert-preview-img" alt="Sertifikat Akuntansi">
-                </a>
+                <img src="./sertifikat-akuntansi.jpg" class="cert-preview-img" onclick="openModal(this.src)" alt="Sertifikat Akuntansi">
                 <div class="cert-info-box">
                     <h3>Sertifikat Akuntansi LPK Bina Warga</h3>
                     <p class="cert-date">Tahun 2020</p>
-                </div>
-                <div id="img-popup-akuntansi" class="lightbox-overlay">
-                    <a href="#close" class="lightbox-close-area"></a>
-                    <div class="lightbox-content">
-                        <a href="#close" class="lightbox-close-btn">&times;</a>
-                        <img src="./sertifikat-akuntansi.jpg" alt="Sertifikat Akuntansi Besar">
-                    </div>
                 </div>
             </div>
 
             <!-- KARTU 4: BAHASA INGGRIS -->
             <div class="cert-card">
-                <a href="#img-popup-inggris">
-                    <img src="./sertifikat-inggris.jpg" class="cert-preview-img" alt="Sertifikat Inggris">
-                </a>
+                <img src="./sertifikat-inggris.jpg" class="cert-preview-img" onclick="openModal(this.src)" alt="Sertifikat Inggris">
                 <div class="cert-info-box">
                     <h3>Sertifikat General English Course – LEC</h3>
                     <p class="cert-date">Tahun 2020</p>
                 </div>
-                <div id="img-popup-inggris" class="lightbox-overlay">
-                    <a href="#close" class="lightbox-close-area"></a>
-                    <div class="lightbox-content">
-                        <a href="#close" class="lightbox-close-btn">&times;</a>
-                        <img src="./sertifikat-inggris.jpg" alt="Sertifikat Inggris Besar">
-                    </div>
-                </div>
             </div>
+        </div>
 
+        <!-- Wadah Tunggal Pop-up (Modal) -->
+        <div id="certModal" class="custom-modal" onclick="closeModal()">
+            <span class="close-modal-btn">&times;</span>
+            <img class="modal-image-content" id="modalTargetImg">
         </div>
     </section>
 
