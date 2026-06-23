@@ -485,7 +485,7 @@ h2::after {
 .modal-image-content {
     margin: auto;
     display: block;
-    max-width: 35%;      /* Diturunkan lagi ke 35% agar tampil elegan dan pas di monitor laptop */
+    max-width: 40%;      /* Diturunkan lagi ke 35% agar tampil elegan dan pas di monitor laptop */
     max-height: 65vh;    /* Diturunkan ke 65vh agar tinggi gambar sangat pas di mata */
     border-radius: 6px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.6);
