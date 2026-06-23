@@ -226,16 +226,13 @@
     </footer>
 
 
-    <!-- SKRIP JAVASCRIPT UNTUK FITUR BERGANTI TEMA -->
+       <!-- SKRIP JAVASCRIPT (GANTI TEMA + PEMBESAR GAMBAR) -->
     <script>
+        // Fitur Ganti Tema
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
-
         const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            body.className = currentTheme;
-        }
-
+        if (currentTheme) { body.className = currentTheme; }
         toggleBtn.addEventListener('click', () => {
             if (body.classList.contains('light-theme')) {
                 body.classList.replace('light-theme', 'dark-theme');
@@ -245,6 +242,17 @@
                 localStorage.setItem('theme', 'light-theme');
             }
         });
+
+        // Fitur Pembesar Gambar Modal (Anti-Kedip)
+        function openModal(imgSrc) {
+            const modal = document.getElementById("certModal");
+            const modalImg = document.getElementById("modalTargetImg");
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+        }
+        function closeModal() {
+            document.getElementById("certModal").style.display = "none";
+        }
     </script>
 </body>
 </html>
