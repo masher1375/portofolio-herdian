@@ -144,46 +144,85 @@
         </div>
     </section>
 
-        <!-- SERTIFIKASI RESMI (EDISI DENGAN FOTO LINK) -->
+            <!-- SERTIFIKASI RESMI (EDISI GAMBAR LANGSUNG & POP-UP LIGHTBOX) -->
     <section class="container section">
         <h2>Sertifikasi Resmi</h2>
-        <p class="section-desc">Klik tombol "Lihat Sertifikat" untuk melihat bukti fisik dokumen dan kompetensi asli.</p>
+        <p class="section-desc">Klik pada gambar sertifikat untuk memperbesar dan melihat detail dokumen secara jelas.</p>
+        
         <div class="cert-grid">
             
+            <!-- KARTU 1: TSM -->
             <div class="cert-card">
-                <div class="cert-info">
-                    <span class="cert-icon">📜</span>
+                <!-- Gambar Sertifikat Kecil -->
+                <a href="#img-popup-tsm">
+                    <img src="./sertifikat-tsm.jpg" class="cert-preview-img" alt="Sertifikat TSM">
+                </a>
+                <div class="cert-info-box">
                     <h3>Sertifikat Kompetensi Keahlian Teknik Bisnis Sepeda Motor</h3>
+                    <p class="cert-date">Tahun 2020</p>
                 </div>
-                <p class="cert-date">Diterbitkan: Tahun 2020</p>
-                <a href="./sertifikat-tsm.jpg" target="_blank" class="btn-view-cert">👁️ Lihat Sertifikat</a>
+                <!-- Wadah Pop-up Layar Penuh (Lightbox) -->
+                <div id="img-popup-tsm" class="lightbox-overlay">
+                    <a href="#close" class="lightbox-close-area"></a>
+                    <div class="lightbox-content">
+                        <a href="#close" class="lightbox-close-btn">&times;</a>
+                        <img src="./sertifikat-tsm.jpg" alt="Sertifikat TSM Besar">
+                    </div>
+                </div>
             </div>
 
+            <!-- KARTU 2: KOMPUTER -->
             <div class="cert-card">
-                <div class="cert-info">
-                    <span class="cert-icon">💻</span>
+                <a href="#img-popup-komputer">
+                    <img src="./sertifikat-komputer.jpg" class="cert-preview-img" alt="Sertifikat Komputer">
+                </a>
+                <div class="cert-info-box">
                     <h3>Sertifikat Komputer LPK Bina Warga</h3>
+                    <p class="cert-date">Tahun 2020</p>
                 </div>
-                <p class="cert-date">Diterbitkan: Tahun 2020</p>
-                <a href="./sertifikat-komputer.jpg" target="_blank" class="btn-view-cert">👁️ Lihat Sertifikat</a>
+                <div id="img-popup-komputer" class="lightbox-overlay">
+                    <a href="#close" class="lightbox-close-area"></a>
+                    <div class="lightbox-content">
+                        <a href="#close" class="lightbox-close-btn">&times;</a>
+                        <img src="./sertifikat-komputer.jpg" alt="Sertifikat Komputer Besar">
+                    </div>
+                </div>
             </div>
 
+            <!-- KARTU 3: AKUNTANSI -->
             <div class="cert-card">
-                <div class="cert-info">
-                    <span class="cert-icon">📊</span>
+                <a href="#img-popup-akuntansi">
+                    <img src="./sertifikat-akuntansi.jpg" class="cert-preview-img" alt="Sertifikat Akuntansi">
+                </a>
+                <div class="cert-info-box">
                     <h3>Sertifikat Akuntansi LPK Bina Warga</h3>
+                    <p class="cert-date">Tahun 2020</p>
                 </div>
-                <p class="cert-date">Diterbitkan: Tahun 2020</p>
-                <a href="./sertifikat-akuntansi.jpg" target="_blank" class="btn-view-cert">👁️ Lihat Sertifikat</a>
+                <div id="img-popup-akuntansi" class="lightbox-overlay">
+                    <a href="#close" class="lightbox-close-area"></a>
+                    <div class="lightbox-content">
+                        <a href="#close" class="lightbox-close-btn">&times;</a>
+                        <img src="./sertifikat-akuntansi.jpg" alt="Sertifikat Akuntansi Besar">
+                    </div>
+                </div>
             </div>
 
+            <!-- KARTU 4: BAHASA INGGRIS -->
             <div class="cert-card">
-                <div class="cert-info">
-                    <span class="cert-icon">🔤</span>
+                <a href="#img-popup-inggris">
+                    <img src="./sertifikat-inggris.jpg" class="cert-preview-img" alt="Sertifikat Inggris">
+                </a>
+                <div class="cert-info-box">
                     <h3>Sertifikat General English Course – LEC</h3>
+                    <p class="cert-date">Tahun 2020</p>
                 </div>
-                <p class="cert-date">Diterbitkan: Tahun 2020</p>
-                <a href="./sertifikat-inggris.jpg" target="_blank" class="btn-view-cert">👁️ Lihat Sertifikat</a>
+                <div id="img-popup-inggris" class="lightbox-overlay">
+                    <a href="#close" class="lightbox-close-area"></a>
+                    <div class="lightbox-content">
+                        <a href="#close" class="lightbox-close-btn">&times;</a>
+                        <img src="./sertifikat-inggris.jpg" alt="Sertifikat Inggris Besar">
+                    </div>
+                </div>
             </div>
 
         </div>
