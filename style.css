@@ -350,7 +350,7 @@ h2::after {
 }
 
 /* ==========================================================================
-   DESAIN KARTU SERTIFIKAT INTERAKTIF BARU
+   DESAIN GALERI SERTIFIKAT LANGSUNG DENGAN POP-UP (LIGHTBOX CSS)
    ========================================================================== */
 .cert-grid {
     display: grid;
@@ -361,18 +361,13 @@ h2::after {
 
 .cert-card {
     background: var(--bg-card);
-    padding: 22px;
     border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-    border-left: 4px solid var(--accent-color); /* Garis aksen toska elegan di kiri kartu */
-    border-top: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Menyeimbangkan posisi tombol di bawah kartu */
-    min-height: 200px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cert-card:hover {
@@ -380,47 +375,117 @@ h2::after {
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
-.cert-info {
+/* Pengaturan Gambar Kecil di Halaman Web */
+.cert-preview-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Memotong gambar secara proporsional agar seragam */
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: opacity 0.2s ease;
+}
+
+.cert-preview-img:hover {
+    opacity: 0.9; /* Sedikit meredup saat kursor di atasnya sebagai tanda bisa diklik */
+}
+
+.cert-info-box {
+    padding: 15px;
+    flex: 1;
     display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    margin-bottom: 10px;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.cert-icon {
-    font-size: 1.3rem;
-}
-
-.cert-card h3 {
-    font-size: 0.95rem;
+.cert-info-box h3 {
+    font-size: 0.9rem;
     color: var(--text-title);
     font-weight: 600;
     line-height: 1.4;
+    margin-bottom: 8px;
 }
 
-.cert-date {
+.cert-info-box .cert-date {
     font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 15px;
     font-style: italic;
 }
 
-/* Tombol Khusus Lihat Sertifikat */
-.btn-view-cert {
-    display: block;
-    text-align: center;
-    background-color: #334155; /* Warna slate dark maskulin */
-    color: #ffffff !important;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
+/* ==========================================================================
+   SISTEM POP-UP LAYAR PENUH (CSS LIGHTBOX SYSTEM)
+   ========================================================================== */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.9); /* Latar belakang hitam transparan mewah */
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none; /* Bersembunyi dan tidak bisa diklik saat pasif */
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-view-cert:hover {
-    background-color: var(--accent-color); /* Berubah menjadi toska saat disorot */
+/* Memicu pop-up aktif ketika gambar diklik (menggunakan fitur CSS target) */
+.lightbox-overlay:target {
+    opacity: 1;
+    pointer-events: auto; /* Aktif dan bisa berinteraksi */
+}
+
+/* Area kosong di sekitar gambar untuk menutup jika diklik */
+.lightbox-close-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 85%;
+    max-height: 85%;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    z-index: 10000;
+}
+
+.lightbox-overlay:target .lightbox-content {
+    transform: scale(1); /* Efek membesar halus saat muncul */
+}
+
+/* Gambar Besar di dalam Pop-up */
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 75vh;
+    display: block;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Tombol Keluar (X) di Pojok Kanan Atas Pop-up */
+.lightbox-close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.lightbox-close-btn:hover {
+    color: var(--accent-color) !important;
 }
 
 /* ==========================================================================
