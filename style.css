@@ -479,17 +479,26 @@ h2::after {
     cursor: zoom-out; /* Kursor berubah tanda mengecilkan saat di area hitam */
 }
 
-/* GAMBAR BESAR DI MODAL */
+/* GAMBAR BESAR DI MODAL (UKURAN PROPORSIED & PROPORSIONAL) */
 .modal-image-content {
     margin: auto;
     display: block;
-    max-width: 85%;
-    max-height: 85vh;
+    max-width: 55%;      /* Diturunkan dari 85% ke 55% agar pas dan tidak terlalu besar di laptop */
+    max-height: 75vh;    /* Diturunkan dari 85vh ke 75vh agar tidak terlalu tinggi */
     border-radius: 6px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.5);
     cursor: default;
+    background-color: #ffffff; /* Tambahan latar belakang putih agar rapi */
+    padding: 5px;
 }
 
+/* Penyesuaian otomatis untuk layar HP agar gambar tetap terlihat jelas saat dibuka lewat ponsel */
+@media (max-width: 768px) {
+    .modal-image-content {
+        max-width: 90%;  /* Jika dibuka di HP, ukurannya otomatis melebar penuh agar terbaca */
+        max-height: 80vh;
+    }
+}
 /* TOMBOL SILANG KELUAR */
 .close-modal-btn {
     position: absolute;
