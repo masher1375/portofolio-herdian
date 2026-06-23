@@ -2,24 +2,22 @@
    STRUKTUR VARIABEL WARNA - EDISI ELEGAN & CERAH (LIGHT MODE UTAMA)
    ========================================================================== */
 :root {
-    /* Konfigurasi Tema Terang Elegan (Default) */
-    --bg-primary: #fcfdfd;          /* Putih mutiara bersih */
-    --bg-secondary: #f1f5f9;        /* Abu-abu terang premium */
-    --bg-hero: linear-gradient(135deg, #1e293b 0%, #334155 100%); /* Deep Slate Blue */
-    --bg-card: #ffffff;             /* Putih solid untuk kartu */
-    --text-main: #334155;           /* Abu-abu gelap (lebih lembut dari hitam) */
-    --text-muted: #64748b;          /* Slate muter untuk deskripsi */
-    --text-title: #0f172a;          /* Slate pekat untuk judul utama */
-    --border-color: #e2e8f0;        /* Garis pembatas tipis elegan */
-    --badge-bg: #e2e8f0;            /* Warna tombol kontak standar */
+    --bg-primary: #fcfdfd;          
+    --bg-secondary: #f1f5f9;        
+    --bg-hero: linear-gradient(135deg, #1e293b 0%, #334155 100%); 
+    --bg-card: #ffffff;             
+    --text-main: #334155;           
+    --text-muted: #64748b;          
+    --text-title: #0f172a;          
+    --border-color: #e2e8f0;        
+    --badge-bg: #e2e8f0;            
     --badge-text: #334155;
     --form-bg: #ffffff;
-    --accent-color: #0d9488;        /* Muted Teal - Hijau Toska Elegan */
+    --accent-color: #0d9488;        
     --accent-hover: #0f766e;
 }
 
 body.dark-theme {
-    /* Konfigurasi Tema Gelap (Tetap Disediakan Jika Pengunjung Mengklik Tombol) */
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
     --bg-hero: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
@@ -31,12 +29,12 @@ body.dark-theme {
     --badge-bg: #334155;
     --badge-text: #f8fafc;
     --form-bg: #0f172a;
-    --accent-color: #38bdf8;        /* Biru langit terang untuk dark mode */
+    --accent-color: #38bdf8;        
     --accent-hover: #0ea5e9;
 }
 
 /* ==========================================================================
-   ATURAN DASAR GLOBAL
+   ATURAN DASAR GLOBAL & PEMBERSIH BUG TAP HIGHLIGHT
    ========================================================================== */
 * {
     margin: 0;
@@ -44,6 +42,10 @@ body.dark-theme {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    
+    /* FIX MUTLAK: Menghapus kotak kilatan hijau/biru bawaan Chrome saat diklik */
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
 }
 
 body {
@@ -52,9 +54,11 @@ body {
     line-height: 1.6;
 }
 
+/* KUNCI DEKTOP: Memaksa halaman selalu lebar konstan di HP agar mirip laptop */
 .container {
-    width: 90%;
-    max-width: 1000px;
+    width: 95%;
+    max-width: 1050px;
+    min-width: 1000px; /* Dikunci agar elemen tidak melompat ke bawah */
     margin: 0 auto;
 }
 
@@ -110,12 +114,8 @@ h2::after {
     font-size: 0.85rem;
 }
 
-.theme-toggle-btn:hover {
-    background-color: var(--accent-hover);
-}
-
 /* ==========================================================================
-   HEADER / HERO SECTION (DEEP SLATE BLUE PREMIUM)
+   HEADER / HERO SECTION (STRUKTUR ANTI FOTO TURUN)
    ========================================================================== */
 .hero {
     background: var(--bg-hero);
@@ -124,43 +124,40 @@ h2::after {
     border-bottom: 1px solid var(--border-color);
 }
 
-/* ==========================================================================
-   PENGUNCI TATA LETAK HEADER ANTI-TURUN
-   ========================================================================== */
-.container {
-    width: 95%;
-    max-width: 1050px; /* Diperluas agar ruang horizontal melimpah */
-    margin: 0 auto;
-}
-
 .hero-flex {
     display: flex !important;
-    flex-direction: row !important; /* Memaksa posisi horizontal kiri-kanan */
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: nowrap !important; /* MUTLAK: Melarang foto melompat ke bawah */
+    flex-direction: row !important; /* Paksa posisi berjejer kiri-kanan */
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 40px !important;
+    flex-wrap: nowrap !important; /* DILARANG KERAS MENURUNKAN FOTO KEBATAH */
 }
 
 .hero-text {
-    flex: 1;
-    min-width: 0; /* Mengalah pada ruang agar foto di kanan tetap muat */
+    flex: 1 !important;
+    min-width: 0 !important; /* Biarkan teks mengalah mengosongkan ruang kanan */
+    text-align: left;
 }
 
 .hero-image {
-    flex-shrink: 0; /* Mengunci ukuran kotak foto agar tidak mengecil */
+    flex-shrink: 0 !important; /* Kunci ukuran foto agar stabil di kanan */
 }
 
-/* Hapus atau kosongkan kode @media (max-width: 768px) yang mengatur hero-flex sebelumnya */
+.profile-img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
-/* ==========================================================================
-   TOMBOL KONTAK BADGES (WARNA SOLID ELEGAN & CERAH)
-   ========================================================================== */
+/* TOMBOL KONTAK BADGES SOLID */
 .contact-badges {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .badge {
@@ -172,58 +169,24 @@ h2::after {
     display: inline-flex !important;
     align-items: center !important;
     border: none !important;
-    color: #ffffff !important; /* Semua teks tombol berwarna putih solid */
+    color: #ffffff !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.badge:hover {
-    transform: translateY(-2px); /* Efek sedikit terangkat saat kursor di atas tombol */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* 📞 Warna Tombol Telepon (Biru Denim Elegan) */
-/* HAPUS BLOK KODE INI DI STYLE.CSS ANDA */
-.badge-phone {
-    background-color: #3b82f6 !important;
-}
-.badge-phone:hover {
-    background-color: #2563eb !important;
-}
-
-/* 💬 Warna Tombol WhatsApp (Hijau Cerah) */
-.badge-whatsapp {
-    background-color: #25d366 !important;
-}
-.badge-whatsapp:hover {
-    background-color: #128c7e !important;
-}
-
-/* ✉️ Warna Tombol Email (Merah Coral Lembut) */
-.badge-email {
-    background-color: #ef4444 !important;
-}
-.badge-email:hover {
-    background-color: #dc2626 !important;
-}
-
-/* 📥 Warna Tombol Unduh CV (Hijau Toska Elegan) */
-.badge-download {
-    background-color: var(--accent-color) !important;
-}
-.badge-download:hover {
-    background-color: var(--accent-hover) !important;
-}
-
+.badge-whatsapp { background-color: #25d366 !important; }
+.badge-whatsapp:hover { background-color: #128c7e !important; }
+.badge-email { background-color: #ef4444 !important; }
+.badge-email:hover { background-color: #dc2626 !important; }
+.badge-download { background-color: var(--accent-color) !important; }
+.badge-download:hover { background-color: var(--accent-hover) !important; }
 
 /* ==========================================================================
-   KONTEN UTAMA & KARTU
+   KONTEN PROFIL, KEAHLIAN & PENGALAMAN
    ========================================================================== */
 .description {
     font-size: 1.05rem;
     margin-bottom: 20px;
     text-align: justify;
-    color: var(--text-main);
 }
 
 .vitals {
@@ -234,10 +197,8 @@ h2::after {
     border-radius: 30px;
     flex-wrap: wrap;
     border: 1px solid var(--border-color);
-    font-size: 0.95rem;
 }
 
-/* GRID KEAHLIAN */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -255,60 +216,21 @@ h2::after {
     border-bottom: 1px solid var(--border-color);
 }
 
-.skill-card h3 {
-    font-size: 1.05rem;
-    margin-bottom: 10px;
-    color: var(--text-title);
-}
+.skill-card h3 { font-size: 1.05rem; color: var(--text-title); margin-bottom: 10px; }
+.skill-card p { font-size: 0.9rem; color: var(--text-muted); }
 
-.skill-card p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
-/* PENGALAMAN & PENDIDIKAN */
 .split-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
 
-@media (max-width: 768px) {
-    .split-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.timeline-item {
-    margin-bottom: 25px;
-}
-
-.timeline-item h3 {
-    color: var(--accent-color);
-    font-size: 1.15rem;
-}
-
-.timeline-item h4 {
-    color: var(--text-title);
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
-
-.timeline-item .date {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
-.timeline-item ul {
-    padding-left: 20px;
-    font-size: 0.95rem;
-}
-
-.timeline-item li {
-    margin-bottom: 6px;
-}
+.timeline-item { margin-bottom: 25px; }
+.timeline-item h3 { color: var(--accent-color); font-size: 1.15rem; }
+.timeline-item h4 { color: var(--text-title); font-size: 1rem; margin-bottom: 5px; }
+.timeline-item .date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; font-style: italic; }
+.timeline-item ul { padding-left: 20px; font-size: 0.95rem; }
+.timeline-item li { margin-bottom: 6px; }
 
 /* DAFTAR KOMPETENSI ALAT */
 .tools-grid {
@@ -329,30 +251,13 @@ h2::after {
     border-bottom: 1px solid var(--border-color);
 }
 
-.tools-card h3 {
-    font-size: 1.1rem;
-    color: var(--text-title);
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px;
-}
-
-.tools-card ul {
-    padding-left: 18px;
-    color: var(--text-main);
-    font-size: 0.95rem;
-}
-
-.tools-card li {
-    margin-bottom: 8px;
-}
-
-.tools-card strong {
-    color: var(--accent-color);
-}
+.tools-card h3 { font-size: 1.1rem; color: var(--text-title); margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+.tools-card ul { padding-left: 18px; font-size: 0.95rem; }
+.tools-card li { margin-bottom: 8px; }
+.tools-card strong { color: var(--accent-color); }
 
 /* ==========================================================================
-   DESAIN GALERI SERTIFIKAT LANGSUNG DENGAN POP-UP (LIGHTBOX CSS)
+   GALERI SERTIFIKAT & MODAL POP-UP PAS PROPORSIAL
    ========================================================================== */
 .cert-grid {
     display: grid;
@@ -367,76 +272,8 @@ h2::after {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-}
-
-.cert-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-}
-
-/* Pengaturan Gambar Kecil di Halaman Web */
-.cert-preview-img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover; /* Memotong gambar secara proporsional agar seragam */
-    cursor: pointer;
-    border-bottom: 1px solid var(--border-color);
-    transition: opacity 0.2s ease;
-}
-
-.cert-preview-img:hover {
-    opacity: 0.9; /* Sedikit meredup saat kursor di atasnya sebagai tanda bisa diklik */
-}
-
-.cert-info-box {
-    padding: 15px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.cert-info-box h3 {
-    font-size: 0.9rem;
-    color: var(--text-title);
-    font-weight: 600;
-    line-height: 1.4;
-    margin-bottom: 8px;
-}
-
-.cert-info-box .cert-date {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-/* ==========================================================================
-   DESAIN POP-UP MODAL JAVASCRIPT (STABIL & LURUS)
-   ========================================================================== */
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 15px;
-}
-
-.cert-card {
-    background: var(--bg-card);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.cert-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
 .cert-preview-img {
@@ -444,220 +281,59 @@ h2::after {
     height: 150px;
     object-fit: cover;
     cursor: pointer;
-    border-bottom: 1px solid var(--border-color);
 }
 
-.cert-info-box {
-    padding: 15px;
-    flex: 1;
-}
+.cert-info-box { padding: 15px; flex: 1; }
+.cert-info-box h3 { font-size: 0.9rem; color: var(--text-title); font-weight: 600; line-height: 1.4; margin-bottom: 8px; }
+.cert-info-box .cert-date { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
 
-.cert-info-box h3 {
-    font-size: 0.9rem;
-    color: var(--text-title);
-    font-weight: 600;
-    line-height: 1.4;
-    margin-bottom: 8px;
-}
-
-.cert-info-box .cert-date {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-/* WADAH MODAL UTAMA */
+/* KUNCI UKURAN MODAL BARU (NYAMAN & PROPORSIED DI MONITOR) */
 .custom-modal {
-    display: none; /* Tersembunyi default */
+    display: none; 
     position: fixed;
     z-index: 999999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 26, 0.93);
+    background-color: rgba(10, 15, 26, 0.96); /* Hitam pekat mantap */
     align-items: center;
     justify-content: center;
-    cursor: zoom-out; /* Kursor berubah tanda mengecilkan saat di area hitam */
 }
 
-/* GAMBAR BESAR DI MODAL (EDISI SUPER PROPORSIAL - UKURAN NYAMAN) */
 .modal-image-content {
     margin: auto;
     display: block;
-    max-width: 40%;      /* Diturunkan lagi ke 35% agar tampil elegan dan pas di monitor laptop */
-    max-height: 65vh;    /* Diturunkan ke 65vh agar tinggi gambar sangat pas di mata */
+    width: auto !important;
+    max-width: 45% !important;   /* Dinaikkan sedikit dari 35% agar tulisan terbaca, tapi tidak raksasa */
+    height: auto !important;
+    max-height: 80vh !important; /* Batas tinggi ideal di mata */
     border-radius: 6px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    cursor: default;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
     background-color: #ffffff;
-    padding: 8px;        /* Memberikan bingkai putih tipis yang rapi di sekeliling sertifikat */
+    padding: 10px;
 }
 
-/* Penyesuaian otomatis khusus layar HP agar gambar sertifikat tidak kekecilan saat dibuka dari ponsel */
-@media (max-width: 768px) {
-    .modal-image-content {
-        max-width: 85%;  /* Di HP otomatis melebar agar tulisan sertifikat tetap terbaca jelas */
-        max-height: 75vh;
-    }
-}
-/* TOMBOL SILANG KELUAR */
 .close-modal-btn {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 35px;
+    right: 45px;
     color: #ffffff;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
     cursor: pointer;
 }
 
-.lightbox-close-btn:hover {
-    color: var(--accent-color) !important;
-}
-
-/* ==========================================================================
-   FORMULIR KONTAK & FOOTER
-   ========================================================================== */
+/* FORMULIR KONTAK & FOOTER */
 .contact-form {
     background-color: var(--form-bg);
     padding: 30px;
     border-radius: 8px;
     max-width: 600px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text-title);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    color: var(--text-main);
-    font-size: 0.95rem;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.btn-submit {
-    background-color: var(--accent-color);
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.btn-submit:hover {
-    background-color: var(--accent-hover);
-}
-
-footer {
-    background-color: var(--bg-secondary);
-    color: var(--text-muted);
-    text-align: center;
-    padding: 25px 0;
-    font-size: 0.9rem;
-    border-top: 1px solid var(--border-color);
-}
-/* GAYA UNTUK TEKS PROYEK MANDIRI */
-.description strong {
-    color: var(--accent-color); /* Menggunakan warna hijau toska elegan */
-    font-weight: 600;
-}
-/* GAYA UNTUK FOTO PROFIL ASLI */
-.profile-img {
-    width: 120px;
-    height: 150px;
-    object-fit: cover; /* Memastikan foto tidak gepeng atau ketarik */
-    border-radius: 8px;
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-/* ==========================================================================
-   FITUR ANIMASI ELEGAN (FADE-IN SLIDE UP)
-   ========================================================================== */
-
-/* 1. Mendefinisikan Gerakan Animasi */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Memulai dari posisi 20px lebih bawah */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);    /* Kembali ke posisi asli */
-    }
-}
-
-/* 2. Menerapkan Animasi pada Komponen Utama saat Halaman Dimuat */
-.hero-text h1, 
-.hero-text .subtitle, 
-.hero-text .location {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Memberikan jeda waktu (delay) agar tombol kontak muncul setelah teks */
-.contact-badges {
-    animation: fadeInUp 0.8s ease-out 0.2s forwards;
-    opacity: 0; /* Bersembunyi dulu sebelum animasi berjalan */
-}
-
-/* Memberikan animasi pada foto profil */
-.profile-img, .avatar-placeholder {
-    animation: fadeInUp 1s ease-out forwards;
-}
-
-/* Memberikan animasi pada setiap judul bagian (Section Heading) */
-h2 {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* ==========================================================================
-   EFEK INTERAKTIF SAAT SENTUHAN / HOVER (MICRO-INTERACTIONS)
-   ========================================================================== */
-
-/* Efek berdenyut lembut pada tombol Sakelar Tema */
-.theme-toggle-btn {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-.theme-toggle-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-/* Efek kartu keahlian & kompetensi sedikit terangkat saat disorot */
-.skill-card, .tools-card, .cert-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.skill-card:hover, .tools-card:hover {
-    transform: translateY(-5px); /* Kartu naik ke atas sejauh 5px */
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); /* Bayangan menjadi lebih lembut dan luas */
-    border-top-color: var(--accent-hover);
-}
-
-.cert-item:hover {
-    transform: translateX(5px); /* Khusus sertifikat, sedikit bergeser ke kanan */
-    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
-}
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-title); }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-main); font-size: 0.95rem; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color); }
