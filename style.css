@@ -1,0 +1,451 @@
+/* ==========================================================================
+   STRUKTUR VARIABEL WARNA - EDISI ELEGAN & CERAH (LIGHT MODE UTAMA)
+   ========================================================================== */
+:root {
+    /* Konfigurasi Tema Terang Elegan (Default) */
+    --bg-primary: #fcfdfd;          /* Putih mutiara bersih */
+    --bg-secondary: #f1f5f9;        /* Abu-abu terang premium */
+    --bg-hero: linear-gradient(135deg, #1e293b 0%, #334155 100%); /* Deep Slate Blue */
+    --bg-card: #ffffff;             /* Putih solid untuk kartu */
+    --text-main: #334155;           /* Abu-abu gelap (lebih lembut dari hitam) */
+    --text-muted: #64748b;          /* Slate muter untuk deskripsi */
+    --text-title: #0f172a;          /* Slate pekat untuk judul utama */
+    --border-color: #e2e8f0;        /* Garis pembatas tipis elegan */
+    --badge-bg: #e2e8f0;            /* Warna tombol kontak standar */
+    --badge-text: #334155;
+    --form-bg: #ffffff;
+    --accent-color: #0d9488;        /* Muted Teal - Hijau Toska Elegan */
+    --accent-hover: #0f766e;
+}
+
+body.dark-theme {
+    /* Konfigurasi Tema Gelap (Tetap Disediakan Jika Pengunjung Mengklik Tombol) */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-hero: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    --bg-card: #1e293b;
+    --text-main: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-title: #f8fafc;
+    --border-color: #334155;
+    --badge-bg: #334155;
+    --badge-text: #f8fafc;
+    --form-bg: #0f172a;
+    --accent-color: #38bdf8;        /* Biru langit terang untuk dark mode */
+    --accent-hover: #0ea5e9;
+}
+
+/* ==========================================================================
+   ATURAN DASAR GLOBAL
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    color: var(--text-main);
+    background-color: var(--bg-primary);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.section-desc {
+    margin-bottom: 25px;
+    color: var(--text-muted);
+}
+
+.bg-section-alt {
+    background-color: var(--bg-secondary);
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--text-title);
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+/* SAKELAR TEMA FLOATING BUTTON */
+.theme-switch-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle-btn {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 0.85rem;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ==========================================================================
+   HEADER / HERO SECTION (DEEP SLATE BLUE PREMIUM)
+   ========================================================================== */
+.hero {
+    background: var(--bg-hero);
+    color: #fff;
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #f8fafc;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 15px;
+}
+
+.location {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   TOMBOL KONTAK BADGES (WARNA SOLID ELEGAN & CERAH)
+   ========================================================================== */
+.contact-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.badge {
+    text-decoration: none !important;
+    padding: 10px 18px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    border: none !important;
+    color: #ffffff !important; /* Semua teks tombol berwarna putih solid */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge:hover {
+    transform: translateY(-2px); /* Efek sedikit terangkat saat kursor di atas tombol */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 📞 Warna Tombol Telepon (Biru Denim Elegan) */
+.badge-phone {
+    background-color: #3b82f6 !important;
+}
+.badge-phone:hover {
+    background-color: #2563eb !important;
+}
+
+/* 💬 Warna Tombol WhatsApp (Hijau Cerah) */
+.badge-whatsapp {
+    background-color: #25d366 !important;
+}
+.badge-whatsapp:hover {
+    background-color: #128c7e !important;
+}
+
+/* ✉️ Warna Tombol Email (Merah Coral Lembut) */
+.badge-email {
+    background-color: #ef4444 !important;
+}
+.badge-email:hover {
+    background-color: #dc2626 !important;
+}
+
+/* 📥 Warna Tombol Unduh CV (Hijau Toska Elegan) */
+.badge-download {
+    background-color: var(--accent-color) !important;
+}
+.badge-download:hover {
+    background-color: var(--accent-hover) !important;
+}
+
+
+/* ==========================================================================
+   KONTEN UTAMA & KARTU
+   ========================================================================== */
+.description {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: var(--text-main);
+}
+
+.vitals {
+    display: inline-flex;
+    gap: 20px;
+    background-color: var(--bg-secondary);
+    padding: 12px 20px;
+    border-radius: 30px;
+    flex-wrap: wrap;
+    border: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+/* GRID KEAHLIAN */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    border-top: 3px solid var(--accent-color);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skill-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: var(--text-title);
+}
+
+.skill-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* PENGALAMAN & PENDIDIKAN */
+.split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .split-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.timeline-item {
+    margin-bottom: 25px;
+}
+
+.timeline-item h3 {
+    color: var(--accent-color);
+    font-size: 1.15rem;
+}
+
+.timeline-item h4 {
+    color: var(--text-title);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.timeline-item .date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.timeline-item ul {
+    padding-left: 20px;
+    font-size: 0.95rem;
+}
+
+.timeline-item li {
+    margin-bottom: 6px;
+}
+
+/* DAFTAR KOMPETENSI ALAT */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.tools-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    border-top: 3px solid var(--accent-color);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tools-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-title);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.tools-card ul {
+    padding-left: 18px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.tools-card li {
+    margin-bottom: 8px;
+}
+
+.tools-card strong {
+    color: var(--accent-color);
+}
+
+/* SERTIFIKASI */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.cert-item {
+    background: var(--bg-card);
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    border-left: 4px solid var(--accent-color);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   FORMULIR KONTAK & FOOTER
+   ========================================================================== */
+.contact-form {
+    background-color: var(--form-bg);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-title);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.btn-submit {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-hover);
+}
+
+footer {
+    background-color: var(--bg-secondary);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+/* GAYA UNTUK TEKS PROYEK MANDIRI */
+.description strong {
+    color: var(--accent-color); /* Menggunakan warna hijau toska elegan */
+    font-weight: 600;
+}
+/* GAYA UNTUK FOTO PROFIL ASLI */
+.profile-img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover; /* Memastikan foto tidak gepeng atau ketarik */
+    border-radius: 8px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
