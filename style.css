@@ -132,6 +132,20 @@ h2::after {
     flex-wrap: wrap;
 }
 
+/* ==========================================================================
+   PENGATURAN RESPONSIVE KHUSUS LAYAR HP (MENGUBAH URUTAN FOTO KE ATAS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-flex {
+        flex-direction: column-reverse; /* Membalik urutan di HP: Foto naik ke atas, Teks ke bawah */
+        text-align: center;            /* Membuat teks nama dan lokasi berada di tengah (center) agar rapi */
+    }
+    
+    .contact-badges {
+        justify-content: center;       /* Membuat tombol-tombol kontak rata tengah di layar HP */
+    }
+}
+
 .hero-text {
     flex: 1;
     min-width: 300px;
