@@ -125,27 +125,32 @@ h2::after {
 }
 
 /* ==========================================================================
-   KODE PENGUNCI TAMPILAN SITUS DESKTOP (FOTO SELALU DI KANAN TEKS)
+   PERBAIKAN TOTAL STRUKTUR HEADER (MENGUNCI FOTO SELALU DI KANAN)
    ========================================================================== */
 .container {
     width: 95%;
-    max-width: 1000px;
-    min-width: 950px; /* Mengunci lebar minimal web agar komponen tidak melompat ke bawah */
+    max-width: 1050px; /* Diperluas agar ruang horizontal melimpah */
     margin: 0 auto;
 }
 
 .hero-flex {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important; /* Memaksa arah horizontal kiri-kanan */
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
-    flex-wrap: nowrap !important; /* Memaksa foto dan teks untuk selalu sejajar kiri-kanan */
+    gap: 35px;
+    flex-wrap: nowrap !important; /* MUTLAK: Melarang foto melompat ke bawah */
 }
 
 .hero-text {
     flex: 1;
-    min-width: 400px; /* Diturunkan dari 500px ke 400px agar memberikan ruang bagi foto di kanan */
+    min-width: 0; /* Menghapus batasan kaku agar teks mengalah pada ruang foto */
 }
+
+.hero-image {
+    flex-shrink: 0; /* Melarang foto menyusut atau mengecil */
+}
+
 
 /* Hapus atau kosongkan kode @media (max-width: 768px) yang mengatur hero-flex sebelumnya */
 
